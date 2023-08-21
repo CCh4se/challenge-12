@@ -11,13 +11,6 @@ const db = mysql.createConnection({
     database: "employeeDB"
 });
 
-db.connect(function(err){
-    if (err) throw err;
-    console.log("connnected as id" + db.threadId);
-
-    launchScreen();
-});
-
 function firstPrompt() {
     inquier
         .prompt({
@@ -66,5 +59,20 @@ function firstPrompt() {
                 break;
         } 
         });
+};
+
+function viewDepartments() {
+   // const sql = 'SELECT department.id', 
 }
 
+
+
+(async () => {
+    try {
+      await connection.connect();
+      console.log('Connected to the database.');
+      mainMenu();
+    } catch (error) {
+      console.error('Error connecting to the database:', error);
+    }
+  })();
